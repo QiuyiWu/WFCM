@@ -1,6 +1,6 @@
 # Statistical Inference for Fuzzy Clustering (WFCM) — Code Repository
 
-This repository contains the reproducible code and data accompanying the paper “Statistical Inference for Fuzzy Clustering” by Qiuyi Wu, Anru R. Zhang, and Zihan Zhu.
+This repository contains the reproducible code and data accompanying the paper “Statistical Inference for Fuzzy Clustering” by Qiuyi Wu, Zihan Zhu and Anru R. Zhang.
 
 The code implements the proposed Weighted Fuzzy C-Means (WFCM) framework, supports uncertainty quantification, and reproduces all figures as well as simulations and applications found in the manuscript.
 
