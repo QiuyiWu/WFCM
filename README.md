@@ -5,7 +5,7 @@ This repository contains the reproducible code and data accompanying the paper �
 The code implements the proposed Weighted Fuzzy C-Means (WFCM) framework, supports uncertainty quantification, and reproduces all figures as well as simulations and applications found in the manuscript.
 
 ## Repository Structure
-
+```
 ├── data/
 │   ├── processed_mix3_df.rds          # REMOVED!! RNA-seq processed dataset (Example 1)
 │   ├── ADNI_pc.csv                    # REMOVED!! ADNI PCA features (Example 2)
@@ -16,7 +16,7 @@ The code implements the proposed Weighted Fuzzy C-Means (WFCM) framework, suppor
 ├── FCM_cell.ipynb                     # RNA-seq case study (Application Example 1)
 ├── FCM_adni.ipynb                     # ADNI case study (Application Example 2)
 └── README.md
-
+```
 > **Note:** The raw ADNI data (`ADNIMERGE_0.0.1.tar.gz`) and any individual-level ADNI CSV files are **not included** due to data use restrictions. 
 > Where to Find and Access the Data: Alzheimer’s Disease Neuroimaging Initiative (ADNI)
 >
@@ -81,7 +81,7 @@ All datasets required for reproducing the figures and results are included in th
 ## Citation
 If you use this code in your research, please cite:
 
-Wu, Q., Zhang, A. R., & Zhu, Z. (2025). Statistical Inference for Fuzzy Clustering. Manuscript.
+Wu, Q., Zhu, Z., & Zhang, A. R. (2025). Statistical Inference for Fuzzy Clustering. Manuscript.
 
 ## Contact
 
