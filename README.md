@@ -21,7 +21,9 @@ The code implements the proposed Weighted Fuzzy C-Means (WFCM) framework, suppor
 > Where to Find and Access the Data: Alzheimer’s Disease Neuroimaging Initiative (ADNI)
 >
 > **Instructions to reproduce `ADNI_pc.csv`:**
+> 
 > Access process: Register for an account and submit a Data Use Application through the ADNI Image and Data Archive (IDA) Alzheimer's Journals.Upon approval, you can download imaging and biomarker datasets in CSV or DICOM formats, including preprocessed PET measures (e.g., florbetapir SUVR by region) and MRI FreeSurfer outputs.
+>
 > Go to tab Downloads --- Study Info --- Data&Database --- ADNIMERGE - Key ADNI tables merged into one table - Packages for R [ADNI1,GO,2]
 > PCA analysis on selected features
 
@@ -33,6 +35,7 @@ The code implements the proposed Weighted Fuzzy C-Means (WFCM) framework, suppor
 > [https://github.com/lucylgao/clusterpval-experiments/blob/master/real-data-code/zheng.R](https://github.com/lucylgao/clusterpval-experiments/blob/master/real-data-code/zheng.R)
 >
 > **Instructions to reproduce `processed_mix3_df.rds`:**
+> 
 > 1. Download the Zheng et al. (2017) single-cell RNA-seq data.
 > 2. Run `zheng.R` from Lucy Gao’s repository to generate the processed mixture dataset.
 > 3. Save the resulting R object as `data/processed_mix3_df.rds` locally.
