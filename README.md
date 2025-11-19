@@ -86,7 +86,6 @@ Wu, Q., Zhu, Z., & Zhang, A. R. (2025). Statistical Inference for Fuzzy Clusteri
 ## Contact
 
 For questions, please contact:
-Qiuyi Wu
-Email: qiuyi.wu@duke.edu or zhzhu1@wharton.upenn.edu
+Qiuyi Wu (qiuyi.wu@duke.edu) or Zihan Zhu (zhzhu1@wharton.upenn.edu).
 
 
