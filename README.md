@@ -51,7 +51,7 @@ The code implements the proposed Weighted Fuzzy C-Means (WFCM) framework, suppor
         - Induced density for different parameter values
 2. Simulation
    - Notebook: `FCM_weight.ipynb`
-   - Description: Simulation study to (i) verify finite-sample consistency, (ii) assess the empirical distribution of the estimator under increasing sample size, and (iii) compare different approaches to uncertainty quantification, including empirical replicates, bootstrap resampling, and Fisher-information-based approximations.
+   - Description: Simulation study for (i) Consistency, (ii) Asymptotic Normality.
 4. Application 
     - Example 1: RNA-seq (Single-Cell) Data
         - Notebook: `FCM_cell.ipynb`
