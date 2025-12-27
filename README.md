@@ -13,6 +13,7 @@ The code implements the proposed Weighted Fuzzy C-Means (WFCM) framework, suppor
 │   ├── ADNIMERGE_0.0.1.tar.gz         # REMOVED!! Raw ADNI data (for full reproducibility)
 │
 ├── FCM_figure.ipynb                   # Generates Figures 1 and 2 (Section 3)
+├── FCM_weight.ipynb                   # Simulation study (Section 6)
 ├── FCM_cell.ipynb                     # RNA-seq case study (Application Example 1)
 ├── FCM_adni.ipynb                     # ADNI case study (Application Example 2)
 └── README.md
@@ -49,7 +50,9 @@ The code implements the proposed Weighted Fuzzy C-Means (WFCM) framework, suppor
         - Comparison of classical FCM vs. WFCM
         - Induced density for different parameter values
 2. Simulation
-3. Application 
+   - Notebook: `FCM_weight.ipynb`
+   - Description: Simulation study to (i) verify finite-sample consistency, (ii) assess the empirical distribution of the estimator under increasing sample size, and (iii) compare different approaches to uncertainty quantification, including empirical replicates, bootstrap resampling, and Fisher-information-based approximations.
+4. Application 
     - Example 1: RNA-seq (Single-Cell) Data
         - Notebook: `FCM_cell.ipynb`
         - Data: `data/processed_mix3_df.rds`
