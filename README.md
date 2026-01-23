@@ -85,7 +85,7 @@ All datasets required for reproducing the figures and results are included in th
 ## Citation
 If you use this code in your research, please cite:
 
-Wu, Q., Zhu, Z., & Zhang, A. R. (2025). Statistical Inference for Fuzzy Clustering. Manuscript.
+Wu, Qiuyi, Zihan Zhu, and Anru R. Zhang. "Statistical Inference for Fuzzy Clustering." arXiv preprint arXiv:2601.02656 (2026).
 
 ## Contact
 
