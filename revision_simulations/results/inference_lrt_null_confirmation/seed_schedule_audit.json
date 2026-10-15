@@ -1,0 +1,16 @@
+{
+  "confirmation_direct_stream_instances": 121200,
+  "confirmation_direct_streams_disjoint_from_primary": true,
+  "confirmation_direct_streams_unique": true,
+  "confirmation_master_seed": 20260907001,
+  "confirmation_primary_direct_seed_overlap_count": 0,
+  "confirmation_root_count": 600,
+  "confirmation_roots_disjoint_from_primary_direct_seeds": true,
+  "confirmation_seed_schedule_sha256": "0c4866173ebce60c4d4b098da5c62b2eb392eb99ab98b6d186e4d588c63928c4",
+  "confirmation_unique_direct_stream_seeds": 121200,
+  "confirmation_unique_root_count": 600,
+  "maximum_root_search_offset": 1,
+  "primary_base_seed": 20260907,
+  "primary_stream_instances": 242400,
+  "primary_unique_direct_stream_seeds": 242386
+}

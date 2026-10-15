@@ -1,0 +1,202 @@
+--- primary_lrt_e4014443/inference_experiment.py
++++ current_post_selection_ae7ce6/inference_experiment.py
+@@ -67,6 +67,16 @@
+ LRT_ALTERNATIVE_CANDIDATE_RULE = (
+     "max_fitted_alternative_and_embedded_analytic_null"
+ )
++SELECTION_PROTOCOL_VERSION = "wxbi-k234-fixed-m2-shared-fisher-v1"
++SELECTION_CANDIDATE_K = (2, 3, 4)
++SELECTION_CANDIDATE_SEED_PATHS = {2: (22,), 3: (23, 1), 4: (23, 2)}
++SELECTION_TRUE_K = 2
++SELECTION_TRUE_SIGMA = 1.0
++SELECTION_TRUE_CENTERS = (-2.0, 2.0)
++SELECTION_TRUE_WEIGHTS = (0.3, 0.7)
++SELECTION_FIXED_M = 2.0
++SELECTION_IMPORTANCE_MULTIPLIER = 12.0
++SELECTION_MINIMUM_IMPORTANCE_SIZE = 4_000
+ 
+ 
+ @dataclass(frozen=True)
+@@ -1099,13 +1109,16 @@
+ 
+ def _selection_one(profile: Profile, n: int, replicate: int, base_seed: int) -> list[dict]:
+     truth = WFCMParams(
+-        sigma=1.0,
+-        centers=np.array([[-2.0], [2.0]]),
+-        weights=np.array([0.3, 0.7]),
+-        m=2.0,
++        sigma=SELECTION_TRUE_SIGMA,
++        centers=np.asarray(SELECTION_TRUE_CENTERS, dtype=float)[:, None],
++        weights=np.asarray(SELECTION_TRUE_WEIGHTS, dtype=float),
++        m=SELECTION_FIXED_M,
+     )
+     data_seed = _spawn_seed(base_seed, 21, n, replicate)
+-    m_is = importance_size(n, multiplier=12.0)
++    m_is = max(
++        SELECTION_MINIMUM_IMPORTANCE_SIZE,
++        int(np.ceil(SELECTION_IMPORTANCE_MULTIPLIER * n)),
++    )
+     values = None
+     sampling_failure_message = ""
+     sampling_exception_type = ""
+@@ -1116,12 +1129,17 @@
+         sampling_exception_type = type(exc).__name__
+ 
+     candidate_seeds = {
+-        2: _spawn_seed(base_seed, 22, n, replicate),
+-        3: _spawn_seed(base_seed, 23, n, replicate, 1),
+-        4: _spawn_seed(base_seed, 23, n, replicate, 2),
++        candidate_k: _spawn_seed(
++            base_seed,
++            seed_path[0],
++            n,
++            replicate,
++            *seed_path[1:],
++        )
++        for candidate_k, seed_path in SELECTION_CANDIDATE_SEED_PATHS.items()
+     }
+     candidates: dict[int, dict] = {}
+-    for candidate_k in (2, 3, 4):
++    for candidate_k in SELECTION_CANDIDATE_K:
+         candidate_fit = None
+         candidate_score = np.nan
+         candidate_valid = False
+@@ -1138,7 +1156,7 @@
+                     "maxiter": profile.maxiter,
+                     "seed": candidate_seeds[candidate_k],
+                 }
+-                if candidate_k != 2:
++                if candidate_k != SELECTION_TRUE_K:
+                     fit_kwargs["proposal_kind"] = "defensive"
+                 candidate_fit = fit_wfcm(values, **fit_kwargs)
+                 fit_success = bool(candidate_fit.success)
+@@ -1179,9 +1197,11 @@
+ 
+     # A best-among-survivors rule is not the prespecified k=2,3,4 WXBI rule.
+     # Define the plug-in selection only if all three fits and scores are valid.
+-    selection_defined = all(candidates[k]["valid"] for k in (2, 3, 4))
++    selection_defined = all(
++        candidates[k]["valid"] for k in SELECTION_CANDIDATE_K
++    )
+     selected_k = (
+-        min((2, 3, 4), key=lambda k: candidates[k]["score"])
++        min(SELECTION_CANDIDATE_K, key=lambda k: candidates[k]["score"])
+         if selection_defined
+         else None
+     )
+@@ -1272,19 +1292,31 @@
+             "exception_type": analysis_exception_type,
+         }
+ 
+-    fixed_analysis = analyze("fixed_k", candidates[2], True, 24)
++    fixed_analysis = analyze(
++        "fixed_k", candidates[SELECTION_TRUE_K], True, 24
++    )
+     selected_record = candidates[selected_k] if selection_defined else None
+-    selected_analysis = analyze(
+-        "selected_k_plug_in",
+-        selected_record,
+-        bool(selection_defined and selected_k == truth.k),
+-        25,
+-    )
++    if selection_defined and selected_k == SELECTION_TRUE_K:
++        # Conditional post-selection coverage must condition the identical
++        # k=2 inferential result on the selection event.  Recomputing Fisher
++        # information with another random integration would add irrelevant
++        # Monte Carlo noise and could create branch-specific failures.
++        selected_analysis = {
++            **fixed_analysis,
++            "analysis": "selected_k_plug_in",
++        }
++    else:
++        selected_analysis = analyze(
++            "selected_k_plug_in",
++            selected_record,
++            False,
++            25,
++        )
+     analyses = (fixed_analysis, selected_analysis)
+ 
+     failure_parts = [
+         f"candidate k={k}: {candidates[k]['failure_message']}"
+-        for k in (2, 3, 4)
++        for k in SELECTION_CANDIDATE_K
+         if not candidates[k]["valid"]
+     ]
+     failure_parts.extend(
+@@ -1296,7 +1328,7 @@
+     aggregate_failure_message = "; ".join(failure_parts)
+     exception_types = []
+     for value in [
+-        *(candidates[k]["exception_type"] for k in (2, 3, 4)),
++        *(candidates[k]["exception_type"] for k in SELECTION_CANDIDATE_K),
+         *(item["exception_type"] for item in analyses),
+     ]:
+         if value and value not in exception_types:
+@@ -1309,24 +1341,30 @@
+         "exception_type": aggregate_exception_type,
+         **{
+             f"candidate_k{k}_valid": candidates[k]["valid"]
+-            for k in (2, 3, 4)
++            for k in SELECTION_CANDIDATE_K
+         },
+         **{
+             f"candidate_k{k}_failure_message": candidates[k]["failure_message"]
+-            for k in (2, 3, 4)
++            for k in SELECTION_CANDIDATE_K
+         },
+         **{
+             f"candidate_k{k}_exception_type": candidates[k]["exception_type"]
+-            for k in (2, 3, 4)
++            for k in SELECTION_CANDIDATE_K
+         },
+-        **{f"candidate_k{k}_fit_seed": candidates[k]["fit_seed"] for k in (2, 3, 4)},
+-        **{f"xbi_k{k}": float(candidates[k]["score"]) for k in (2, 3, 4)},
++        **{
++            f"candidate_k{k}_fit_seed": candidates[k]["fit_seed"]
++            for k in SELECTION_CANDIDATE_K
++        },
++        **{
++            f"xbi_k{k}": float(candidates[k]["score"])
++            for k in SELECTION_CANDIDATE_K
++        },
+     }
+     rows = []
+     for item in analyses:
+         analysis = item["analysis"]
+         output_selected_k = (
+-            2
++            SELECTION_TRUE_K
+             if analysis == "fixed_k"
+             else selected_k if selection_defined else np.nan
+         )
+@@ -1505,7 +1543,7 @@
+     frequency_rows = []
+     for n, group in selected.groupby("n", sort=True):
+         defined = group[group["selection_defined"].fillna(False).astype(bool)]
+-        for selected_k in (2, 3, 4):
++        for selected_k in SELECTION_CANDIDATE_K:
+             count = int((defined["selected_k"] == selected_k).sum())
+             frequency_rows.append(
+                 {
+@@ -1603,6 +1641,20 @@
+                 "lrt_alternative_candidate_rule": (
+                     LRT_ALTERNATIVE_CANDIDATE_RULE
+                 ),
++                "selection_protocol_version": SELECTION_PROTOCOL_VERSION,
++                "selection_candidate_k": list(SELECTION_CANDIDATE_K),
++                "selection_true_k": SELECTION_TRUE_K,
++                "selection_true_sigma": SELECTION_TRUE_SIGMA,
++                "selection_true_centers": list(SELECTION_TRUE_CENTERS),
++                "selection_true_weights": list(SELECTION_TRUE_WEIGHTS),
++                "selection_fixed_m": SELECTION_FIXED_M,
++                "selection_importance_multiplier": (
++                    SELECTION_IMPORTANCE_MULTIPLIER
++                ),
++                "selection_minimum_importance_size": (
++                    SELECTION_MINIMUM_IMPORTANCE_SIZE
++                ),
++                "selection_fisher_reuses_fixed_k_result": True,
+                 "logical_cpu_count": os.cpu_count(),
+                 "machine": platform.machine(),
+                 "platform": platform.platform(),

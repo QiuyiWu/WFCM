@@ -1,0 +1,72 @@
+{
+  "checkpoint_protocol": "atomic-independent-task-json-v1",
+  "experiment": "all",
+  "fit_projected_gradient_tolerance": 0.005,
+  "importance_cloud_fingerprint": "sha256(wfcm-importance-cloud-v1, little-endian float64 C-order samples and proposal log densities with shapes)",
+  "jobs": 1,
+  "legacy_protocol": "corrected-retained-asymptotic-simulations-v2-checkpointed",
+  "logical_cpu_count": 8,
+  "m_grid": [
+    1.5,
+    1.7,
+    1.9,
+    2.0,
+    2.1,
+    2.3,
+    2.5
+  ],
+  "machine": "arm64",
+  "package_versions": {
+    "joblib": "1.6.0",
+    "numpy": "2.5.3",
+    "pandas": "3.0.5",
+    "scikit-learn": "1.9.0",
+    "scipy": "1.18.1"
+  },
+  "platform": "macOS-14.6.1-arm64-arm-64bit",
+  "processor": "arm",
+  "profile": {
+    "estimation_reps": 250,
+    "m_sample_sizes": [
+      200,
+      500,
+      1000
+    ],
+    "m_selection_reps": 200,
+    "maxiter": 450,
+    "n_init": 3,
+    "sample_sizes": [
+      200,
+      500,
+      1000,
+      2000
+    ],
+    "truth_fisher_draws": 750000
+  },
+  "profile_name": "full",
+  "proposal_kind": "defensive",
+  "python_version": "3.12.3",
+  "runtime_note": "perf_counter wall-clock seconds; jobs=1 is required for uncontended runtime summaries",
+  "seed": 20260907,
+  "source_sha256": {
+    "simulations/legacy_corrected_experiment.py": "b2773787238b51bcd6be4232c979a52aabd4177c267b28ce051271204b37543b",
+    "simulations/task_checkpoint.py": "724d7e1364b800a59dd359b8e27c9b6ed53ebf63c022dbf828ead28b700eebbe",
+    "simulations/wfcm_core.py": "3815ea87e7dc6564a0d349165b2ce207b2a818a54025a9b14afeffd82e6412a8"
+  },
+  "truth": {
+    "centers": [
+      [
+        -2.0
+      ],
+      [
+        2.0
+      ]
+    ],
+    "m": 2.0,
+    "sigma": 0.9,
+    "weights": [
+      0.35,
+      0.65
+    ]
+  }
+}
