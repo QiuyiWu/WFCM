@@ -1,0 +1,131 @@
+{
+  "benchmark_protocol": "reviewer-factorial-benchmark-v2-checkpointed",
+  "checkpoint_protocol": "atomic-independent-task-json-v1",
+  "jobs": 1,
+  "logical_cpu_count": 8,
+  "machine": "arm64",
+  "method_execution_order": [
+    "wfcm",
+    "fcm",
+    "kmeans",
+    "ekmeans",
+    "polynomial_fcm",
+    "hdbscan",
+    "agglomerative",
+    "spectral",
+    "gmm_full"
+  ],
+  "method_options_effective": {
+    "agglomerative": {
+      "linkage": "ward"
+    },
+    "ekmeans": {
+      "alpha": "dvariance",
+      "max_iter": 450,
+      "n_init": 10,
+      "scale": 2.0,
+      "use_numba": false
+    },
+    "fcm": {
+      "m": 2.0,
+      "max_iter": 450,
+      "n_init": 10,
+      "tol": 1e-06
+    },
+    "gmm_full": {
+      "covariance_type": "full",
+      "init_params": "kmeans",
+      "max_iter": 450,
+      "n_init": 10,
+      "reg_covar": "max(1e-8, 1e-6 * (1 + mean marginal variance))"
+    },
+    "hdbscan": {
+      "allow_single_cluster": false,
+      "cluster_selection_method": "eom",
+      "effective_min_samples": 12,
+      "min_cluster_size": 12
+    },
+    "kmeans": {
+      "algorithm": "lloyd",
+      "init": "k-means++",
+      "max_iter": 450,
+      "n_init": 10,
+      "tol": 0.0001
+    },
+    "polynomial_fcm": {
+      "beta": 0.5,
+      "max_iter": 450,
+      "n_init": 10,
+      "tol": 1e-06
+    },
+    "spectral": {
+      "affinity": "nearest_neighbors",
+      "assign_labels": "kmeans",
+      "eigen_solver": "arpack",
+      "n_init": 10,
+      "n_neighbors": 15
+    },
+    "wfcm": {
+      "importance_size": 12000,
+      "m": 2.0,
+      "maxiter": 450,
+      "n_init": 10,
+      "proposal_kind": "defensive"
+    }
+  },
+  "methods": [
+    "wfcm",
+    "fcm",
+    "kmeans",
+    "ekmeans",
+    "polynomial_fcm",
+    "hdbscan",
+    "agglomerative",
+    "spectral",
+    "gmm_full"
+  ],
+  "package_versions": {
+    "joblib": "1.6.0",
+    "numpy": "2.5.3",
+    "pandas": "3.0.5",
+    "scikit-learn": "1.9.0",
+    "scipy": "1.18.1",
+    "sklekmeans": "0.2.1"
+  },
+  "platform": "macOS-14.6.1-arm64-arm-64bit",
+  "processor": "arm",
+  "profile": {
+    "competitor_n_init": 10,
+    "imbalances": [
+      "balanced",
+      "moderate",
+      "severe"
+    ],
+    "maxiter": 450,
+    "n": 600,
+    "overlaps": [
+      "low",
+      "moderate",
+      "high"
+    ],
+    "replicates": 100,
+    "scenarios": [
+      "spherical",
+      "anisotropic",
+      "irregular"
+    ],
+    "wfcm_importance_size": 12000,
+    "wfcm_n_init": 10
+  },
+  "profile_name": "full",
+  "python_version": "3.12.3",
+  "runtime_note": "perf_counter wall-clock seconds; jobs=1 is required for uncontended cross-method runtime comparisons",
+  "seed": 20260907,
+  "source_sha256": {
+    "simulations/benchmark_experiment.py": "a876d4cfac83dc38fafe7dbcc322025f4bd8d88e465ee351824d55dca371993b",
+    "simulations/competitors.py": "4a65ff76948da361bffd7379afcedb869b3733ac3ff8333afc5912f74db3e588",
+    "simulations/data_generators.py": "5282e393f7af80029635dd4a489a5bfbb781542077481b1fb5b2c3d9e9872ad0",
+    "simulations/task_checkpoint.py": "724d7e1364b800a59dd359b8e27c9b6ed53ebf63c022dbf828ead28b700eebbe",
+    "simulations/wfcm_core.py": "3815ea87e7dc6564a0d349165b2ce207b2a818a54025a9b14afeffd82e6412a8"
+  }
+}

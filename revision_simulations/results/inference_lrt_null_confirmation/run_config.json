@@ -1,0 +1,60 @@
+{
+  "bootstrap_quantile_method": "numpy_linear",
+  "confirmation_alternative_n_init_total": 3,
+  "confirmation_bootstrap_reps": 199,
+  "confirmation_importance_size": 7500,
+  "confirmation_maxiter": 450,
+  "confirmation_minimum_bootstrap_valid": 190,
+  "confirmation_minimum_bootstrap_valid_fraction": 0.95,
+  "confirmation_n": 500,
+  "confirmation_protocol_version": "lrt-null-n500-r600-fixed-once-v1",
+  "confirmation_reps": 600,
+  "confirmation_separation": 0.0,
+  "experiment": "lrt_null_confirmation",
+  "frozen_source_manifest_sha256": "3bbbabe90ea09634ee70a1d99569c6aeea9a17a6bb4447c16753e66b048af229",
+  "interpretation_requires_all_600_outer_analyses_valid": true,
+  "interpretation_thresholds": {
+    "does_not_support_elevation": "X <= 34",
+    "inconclusive": "35 <= X <= 39",
+    "supports_elevation": "X >= 40"
+  },
+  "jobs": 4,
+  "logical_cpu_count": 8,
+  "lrt_alternative_candidate_rule": "max_fitted_alternative_and_embedded_analytic_null",
+  "lrt_engine_sha256": "60f4c6047ca5cdf1dc2ad2d0f3974ef705195ed5a1f097bddd2910cfeca39953",
+  "lrt_null_estimator": "analytic_gaussian_mle",
+  "lrt_null_scoring_method": "closed_form_gaussian_loglik",
+  "lrt_protocol_version": "analytic-gaussian-null-explicit-candidate-v1",
+  "machine": "arm64",
+  "parallel_backend": "joblib_loky_processes",
+  "platform": "macOS-14.6.1-arm64-arm-64bit",
+  "pool_with_primary_for_prespecified_decision": false,
+  "primary_result_replaced": false,
+  "processor": "arm",
+  "profile": {
+    "bootstrap_reps": 199,
+    "coverage_ns": [
+      200,
+      500
+    ],
+    "coverage_reps": 200,
+    "fisher_draws": 50000,
+    "fit_n_init": 3,
+    "lrt_bootstrap_reps": 199,
+    "lrt_ns": [
+      500
+    ],
+    "lrt_reps": 600,
+    "maxiter": 450,
+    "selection_ns": [
+      150,
+      300
+    ],
+    "selection_reps": 250
+  },
+  "profile_name": "full",
+  "python_version": "3.12.3",
+  "seed": 20260907001,
+  "seed_schedule": "smallest_collision_free_replicate_root-v1",
+  "sequential_additions_permitted": false
+}

@@ -1,0 +1,58 @@
+{
+  "experiment": "selection",
+  "jobs": 4,
+  "logical_cpu_count": 8,
+  "lrt_alternative_candidate_rule": "max_fitted_alternative_and_embedded_analytic_null",
+  "lrt_null_estimator": "analytic_gaussian_mle",
+  "lrt_null_scoring_method": "closed_form_gaussian_loglik",
+  "lrt_protocol_version": "analytic-gaussian-null-explicit-candidate-v1",
+  "machine": "arm64",
+  "platform": "macOS-14.6.1-arm64-arm-64bit",
+  "processor": "arm",
+  "profile": {
+    "bootstrap_reps": 199,
+    "coverage_ns": [
+      200,
+      500
+    ],
+    "coverage_reps": 200,
+    "fisher_draws": 50000,
+    "fit_n_init": 3,
+    "lrt_bootstrap_reps": 199,
+    "lrt_ns": [
+      200,
+      500
+    ],
+    "lrt_reps": 150,
+    "maxiter": 450,
+    "selection_ns": [
+      150,
+      300
+    ],
+    "selection_reps": 250
+  },
+  "profile_name": "full",
+  "python_version": "3.12.3",
+  "runtime_note": "perf_counter wall-clock seconds; jobs=1 is required for uncontended Fisher-versus-bootstrap runtime comparisons",
+  "seed": 20260907,
+  "selection_candidate_k": [
+    2,
+    3,
+    4
+  ],
+  "selection_fisher_reuses_fixed_k_result": true,
+  "selection_fixed_m": 2.0,
+  "selection_importance_multiplier": 12.0,
+  "selection_minimum_importance_size": 4000,
+  "selection_protocol_version": "wxbi-k234-fixed-m2-shared-fisher-v1",
+  "selection_true_centers": [
+    -2.0,
+    2.0
+  ],
+  "selection_true_k": 2,
+  "selection_true_sigma": 1.0,
+  "selection_true_weights": [
+    0.3,
+    0.7
+  ]
+}

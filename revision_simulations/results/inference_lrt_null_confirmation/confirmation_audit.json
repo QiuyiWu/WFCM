@@ -1,0 +1,213 @@
+{
+  "confirmation_protocol_version": "lrt-null-n500-r600-fixed-once-v1",
+  "derived_outputs": {
+    "raw_csv_present": true,
+    "summary_csv_present": true,
+    "summary_matches_recomputed_raw": true,
+    "writeback_json_present": true,
+    "writeback_matches_recomputed_summary": true
+  },
+  "engine": {
+    "checks": {
+      "alternative_starts": true,
+      "bootstrap_reps": true,
+      "candidate_rule": true,
+      "engine_fingerprint": true,
+      "fixed_interpretation_thresholds": true,
+      "importance_size": true,
+      "maxiter": true,
+      "null_DGP": true,
+      "null_estimator": true,
+      "null_scoring": true,
+      "outer_reps": true,
+      "protocol_version": true,
+      "sample_size": true,
+      "strict_bootstrap_validity": true
+    },
+    "lrt_engine_sha256": "60f4c6047ca5cdf1dc2ad2d0f3974ef705195ed5a1f097bddd2910cfeca39953"
+  },
+  "frozen_prelaunch_source": {
+    "all_frozen_source_checks_passed": true,
+    "checks": {
+      "frozen_manifest_digest_schema": true,
+      "frozen_manifest_exact_file_set": true,
+      "frozen_manifest_nonempty": true,
+      "frozen_manifest_paths_within_project": true,
+      "frozen_manifest_present": true,
+      "frozen_source_hashes_match": true
+    },
+    "current_source_sha256": {
+      "revision_work/lrt_null_confirmation_preregistration.md": "86facee8fe44802b7988aeb438a0bb240855fff27b09c1b080e1bc2011409346",
+      "revision_work/lrt_null_confirmation_writeback_template.tex": "ba2f480e330ecafc38b2be49f1c7ba9dde1ffff234dabdfe9879c4b90da2ef74",
+      "simulations/__init__.py": "c003e8537e67706ae3cd37f89fba9ffb383362ccf6236a5864e1150787f1eb62",
+      "simulations/inference_experiment.py": "ae7ce6cca4a7f3c51c1da2b4810db3484c7b494d6666e981d8fd14e59d3866a9",
+      "simulations/lrt_null_confirmation.py": "c856fc4f94157c92033e7396f9e4888d311a10a32aed4c2cc66bb7f5e3a87810",
+      "simulations/tests/test_lrt_null_confirmation.py": "07a46f05ea38e4acfd200777dc70bbd96a38dcee544e70a3cce602289174a7a4",
+      "simulations/wfcm_core.py": "3815ea87e7dc6564a0d349165b2ce207b2a818a54025a9b14afeffd82e6412a8"
+    },
+    "expected_source_sha256": {
+      "revision_work/lrt_null_confirmation_preregistration.md": "86facee8fe44802b7988aeb438a0bb240855fff27b09c1b080e1bc2011409346",
+      "revision_work/lrt_null_confirmation_writeback_template.tex": "ba2f480e330ecafc38b2be49f1c7ba9dde1ffff234dabdfe9879c4b90da2ef74",
+      "simulations/__init__.py": "c003e8537e67706ae3cd37f89fba9ffb383362ccf6236a5864e1150787f1eb62",
+      "simulations/inference_experiment.py": "ae7ce6cca4a7f3c51c1da2b4810db3484c7b494d6666e981d8fd14e59d3866a9",
+      "simulations/lrt_null_confirmation.py": "c856fc4f94157c92033e7396f9e4888d311a10a32aed4c2cc66bb7f5e3a87810",
+      "simulations/tests/test_lrt_null_confirmation.py": "07a46f05ea38e4acfd200777dc70bbd96a38dcee544e70a3cce602289174a7a4",
+      "simulations/wfcm_core.py": "3815ea87e7dc6564a0d349165b2ce207b2a818a54025a9b14afeffd82e6412a8"
+    },
+    "frozen_manifest_sha256": "3bbbabe90ea09634ee70a1d99569c6aeea9a17a6bb4447c16753e66b048af229"
+  },
+  "primary_fingerprints_after": {
+    "lrt_raw.csv": "619b65c3563ce29a21bcbe45f24d2488e374b97c1eb3134554b3e5c8979302c4",
+    "lrt_raw.jsonl": "e8d814d657a1b4a78f832cea9d8001522a75fa11dee0406841d7d29e08df52b5",
+    "lrt_summary.csv": "43704831a850de35913af0d0dc544f36e8e176b0c6d83bb9a90b4c783a1cbba9",
+    "run_config.json": "e3aa17f463b93ceddc57cb339ca63e424d1057d6064eef6cf7f84b5c0fc4c9c4",
+    "source_manifest.sha256": "305d45f02a0bde77182bd48fdcea45b45cccb2add61557a68aebd0dc001c935d",
+    "source_provenance.md": "3afc6648d23df07947280950540cb759bf1bf823e3317b1aa46d8c6b8f32a04b"
+  },
+  "primary_fingerprints_before": {
+    "lrt_raw.csv": "619b65c3563ce29a21bcbe45f24d2488e374b97c1eb3134554b3e5c8979302c4",
+    "lrt_raw.jsonl": "e8d814d657a1b4a78f832cea9d8001522a75fa11dee0406841d7d29e08df52b5",
+    "lrt_summary.csv": "43704831a850de35913af0d0dc544f36e8e176b0c6d83bb9a90b4c783a1cbba9",
+    "run_config.json": "e3aa17f463b93ceddc57cb339ca63e424d1057d6064eef6cf7f84b5c0fc4c9c4",
+    "source_manifest.sha256": "305d45f02a0bde77182bd48fdcea45b45cccb2add61557a68aebd0dc001c935d",
+    "source_provenance.md": "3afc6648d23df07947280950540cb759bf1bf823e3317b1aa46d8c6b8f32a04b"
+  },
+  "primary_result_unchanged": true,
+  "primary_validation": {
+    "checks": {
+      "primary_B": true,
+      "primary_R_per_cell": true,
+      "primary_experiment": true,
+      "primary_maxiter": true,
+      "primary_n500_null_result": true,
+      "primary_n_grid": true,
+      "primary_pinned_artifact_hashes": true,
+      "primary_protocol": true,
+      "primary_protocol_rows": true,
+      "primary_row_count": true,
+      "primary_seed": true,
+      "primary_starts": true,
+      "primary_unique_design_keys": true
+    },
+    "file_sha256": {
+      "lrt_raw.csv": "619b65c3563ce29a21bcbe45f24d2488e374b97c1eb3134554b3e5c8979302c4",
+      "lrt_raw.jsonl": "e8d814d657a1b4a78f832cea9d8001522a75fa11dee0406841d7d29e08df52b5",
+      "lrt_summary.csv": "43704831a850de35913af0d0dc544f36e8e176b0c6d83bb9a90b4c783a1cbba9",
+      "run_config.json": "e3aa17f463b93ceddc57cb339ca63e424d1057d6064eef6cf7f84b5c0fc4c9c4",
+      "source_manifest.sha256": "305d45f02a0bde77182bd48fdcea45b45cccb2add61557a68aebd0dc001c935d",
+      "source_provenance.md": "3afc6648d23df07947280950540cb759bf1bf823e3317b1aa46d8c6b8f32a04b"
+    },
+    "pinned_artifact_matches": {
+      "lrt_raw.csv": true,
+      "lrt_raw.jsonl": true,
+      "lrt_summary.csv": true,
+      "run_config.json": true,
+      "source_manifest.sha256": true,
+      "source_provenance.md": true
+    }
+  },
+  "profile_name": "full",
+  "publication_ready": true,
+  "rows": {
+    "all_structural_checks_passed": true,
+    "checks": {
+      "B": true,
+      "all_outer_analyses_valid_for_fixed_R_interpretation": true,
+      "alternative_starts": true,
+      "analytic_null": true,
+      "analytic_null_diagnostics": true,
+      "boolean_field_encoding": true,
+      "bootstrap_count_bounds": true,
+      "bootstrap_count_hierarchy": true,
+      "bootstrap_count_integrality": true,
+      "bootstrap_cross_objective_fraction_identities": true,
+      "bootstrap_fraction_count_identities": true,
+      "bootstrap_parent_seed_formula": true,
+      "bootstrap_quantile_method": true,
+      "candidate_max_rule": true,
+      "candidate_max_statistic_identity": true,
+      "complete_replicate_grid": true,
+      "confirmation-valid_rows_meet_95pct_bootstrap_rule": true,
+      "confirmation_master_seed": true,
+      "confirmation_protocol": true,
+      "confirmation_validity_indicator_identity": true,
+      "data_seed_formula": true,
+      "empirical_quantile_order": true,
+      "endpoint_diagnostic_identities": true,
+      "experiment_label": true,
+      "fit_seed_formula": true,
+      "fitted_alternative_boundary_diagnostics": true,
+      "fitted_alternative_ess_diagnostics": true,
+      "fitted_alternative_parameter_constraints": true,
+      "fitted_alternative_projected_gradient_diagnostics": true,
+      "fitted_alternative_raw_gradient_diagnostics": true,
+      "importance_size": true,
+      "instrumentation_call_identities": true,
+      "loglik_diagnostic_identities": true,
+      "lrt_protocol": true,
+      "null_only": true,
+      "null_starts_zero": true,
+      "observed_statistic_raw_difference_identity": true,
+      "plus_one_pvalue_identity": true,
+      "publication_profile_name": true,
+      "quadrature": true,
+      "rejection_boolean_encoding": true,
+      "rejection_identity": true,
+      "required_row_schema": true,
+      "root_seed_formula": true,
+      "row_count": true,
+      "sample_size": true,
+      "statistic_name": true,
+      "unique_design_keys": true
+    },
+    "missing_columns": []
+  },
+  "seed_schedule": {
+    "confirmation_direct_stream_instances": 121200,
+    "confirmation_direct_streams_disjoint_from_primary": true,
+    "confirmation_direct_streams_unique": true,
+    "confirmation_master_seed": 20260907001,
+    "confirmation_primary_direct_seed_overlap_count": 0,
+    "confirmation_root_count": 600,
+    "confirmation_roots_disjoint_from_primary_direct_seeds": true,
+    "confirmation_seed_schedule_sha256": "0c4866173ebce60c4d4b098da5c62b2eb392eb99ab98b6d186e4d588c63928c4",
+    "confirmation_unique_direct_stream_seeds": 121200,
+    "confirmation_unique_root_count": 600,
+    "maximum_root_search_offset": 1,
+    "primary_base_seed": 20260907,
+    "primary_stream_instances": 242400,
+    "primary_unique_direct_stream_seeds": 242386
+  },
+  "serializations": {
+    "csv_present": true,
+    "csv_rows": 600,
+    "jsonl_present": true,
+    "jsonl_rows": 600,
+    "required_scalar_values_match": true,
+    "row_counts_match": true
+  },
+  "source": {
+    "current_source_manifest": {
+      "revision_work/lrt_null_confirmation_frozen_manifest.sha256": "3bbbabe90ea09634ee70a1d99569c6aeea9a17a6bb4447c16753e66b048af229",
+      "revision_work/lrt_null_confirmation_preregistration.md": "86facee8fe44802b7988aeb438a0bb240855fff27b09c1b080e1bc2011409346",
+      "revision_work/lrt_null_confirmation_writeback_template.tex": "ba2f480e330ecafc38b2be49f1c7ba9dde1ffff234dabdfe9879c4b90da2ef74",
+      "simulations/__init__.py": "c003e8537e67706ae3cd37f89fba9ffb383362ccf6236a5864e1150787f1eb62",
+      "simulations/inference_experiment.py": "ae7ce6cca4a7f3c51c1da2b4810db3484c7b494d6666e981d8fd14e59d3866a9",
+      "simulations/lrt_null_confirmation.py": "c856fc4f94157c92033e7396f9e4888d311a10a32aed4c2cc66bb7f5e3a87810",
+      "simulations/tests/test_lrt_null_confirmation.py": "07a46f05ea38e4acfd200777dc70bbd96a38dcee544e70a3cce602289174a7a4",
+      "simulations/wfcm_core.py": "3815ea87e7dc6564a0d349165b2ce207b2a818a54025a9b14afeffd82e6412a8"
+    },
+    "recorded_source_manifest": {
+      "revision_work/lrt_null_confirmation_frozen_manifest.sha256": "3bbbabe90ea09634ee70a1d99569c6aeea9a17a6bb4447c16753e66b048af229",
+      "revision_work/lrt_null_confirmation_preregistration.md": "86facee8fe44802b7988aeb438a0bb240855fff27b09c1b080e1bc2011409346",
+      "revision_work/lrt_null_confirmation_writeback_template.tex": "ba2f480e330ecafc38b2be49f1c7ba9dde1ffff234dabdfe9879c4b90da2ef74",
+      "simulations/__init__.py": "c003e8537e67706ae3cd37f89fba9ffb383362ccf6236a5864e1150787f1eb62",
+      "simulations/inference_experiment.py": "ae7ce6cca4a7f3c51c1da2b4810db3484c7b494d6666e981d8fd14e59d3866a9",
+      "simulations/lrt_null_confirmation.py": "c856fc4f94157c92033e7396f9e4888d311a10a32aed4c2cc66bb7f5e3a87810",
+      "simulations/tests/test_lrt_null_confirmation.py": "07a46f05ea38e4acfd200777dc70bbd96a38dcee544e70a3cce602289174a7a4",
+      "simulations/wfcm_core.py": "3815ea87e7dc6564a0d349165b2ce207b2a818a54025a9b14afeffd82e6412a8"
+    },
+    "source_manifest_matches_current_code": true,
+    "source_manifest_present": true
+  }
+}

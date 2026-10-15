@@ -1,0 +1,2 @@
+# Preserve whitespace in the archived unified diff.
+results/provenance/primary_lrt/*.diff -whitespace

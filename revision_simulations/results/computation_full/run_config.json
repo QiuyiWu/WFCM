@@ -1,0 +1,43 @@
+{
+  "experiment": "all",
+  "jobs": 1,
+  "logical_cpu_count": 8,
+  "machine": "arm64",
+  "platform": "macOS-14.6.1-arm64-arm-64bit",
+  "processor": "arm",
+  "profile": {
+    "d_mc": 10,
+    "d_sample_size": 10,
+    "dimension_reps": 20,
+    "dimensions": [
+      2,
+      10,
+      25,
+      50
+    ],
+    "maxiter": 450,
+    "mc_ratios": [
+      1,
+      5,
+      20,
+      80
+    ],
+    "mc_reps": 20,
+    "mc_sample_sizes": [
+      250,
+      1000
+    ],
+    "n_dimension": 500,
+    "n_init": 3,
+    "sample_size_reps": 20,
+    "sample_sizes": [
+      250,
+      1000,
+      4000
+    ]
+  },
+  "profile_name": "full",
+  "python_version": "3.12.3",
+  "runtime_note": "perf_counter wall-clock seconds; jobs=1 is required for uncontended runtime comparisons",
+  "seed": 20260906
+}

@@ -4,6 +4,9 @@ This repository contains the reproducible code and data accompanying the paper �
 
 The code implements the proposed Weighted Fuzzy C-Means (WFCM) framework, supports uncertainty quantification, and reproduces all figures as well as simulations and applications found in the manuscript.
 
+Revision simulations, saved results, and commands for rebuilding the comparison,
+inference, and computation summaries are in [`revision_simulations/`](revision_simulations/).
+
 ## Repository Structure
 ```
 ├── data/
@@ -16,6 +19,7 @@ The code implements the proposed Weighted Fuzzy C-Means (WFCM) framework, suppor
 ├── FCM_weight.ipynb                   # Simulation study (Section 6)
 ├── FCM_cell.ipynb                     # RNA-seq case study (Application Example 1)
 ├── FCM_adni.ipynb                     # ADNI case study (Application Example 2)
+├── revision_simulations/              # Revision experiments, results, and reporting
 └── README.md
 ```
 > **Note:** The raw ADNI data (`ADNIMERGE_0.0.1.tar.gz`) and any individual-level ADNI CSV files are **not included** due to data use restrictions. 
