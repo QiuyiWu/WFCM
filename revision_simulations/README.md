@@ -15,9 +15,6 @@ The original notebooks remain in the repository root.
 | `confirmation` | Appendix D.5: independent null check | 600 datasets at n = 500; 199 bootstrap samples |
 | `additional` | Supplementary experiments | Consistency, normality and m-grid sensitivity in a one-dimensional WFCM model |
 
-The paper-facing benchmark uses spherical and anisotropic data. The full saved
-benchmark also retains the two-moons diagnostic. The additional experiments
-have their own summaries; the original notebook figures remain with `FCM_weight.ipynb`.
 
 ## Quick start
 
