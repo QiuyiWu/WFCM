@@ -11,7 +11,7 @@ import numpy as np
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
-NAMES = ['FCM_cell.ipynb', 'FCM_adni.ipynb', 'TCGA_BRCA_three_methods.ipynb']
+NAMES = ['FCM_cell.ipynb', 'FCM_adni.ipynb', 'FCM_breast.ipynb']
 rng = np.random.default_rng(127)
 x = rng.normal(size=(40, 6))
 x[:, 1] = 0.9 * x[:, 0] + 0.1 * x[:, 1]

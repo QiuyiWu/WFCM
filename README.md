@@ -19,7 +19,7 @@ inference, and computation summaries are in [`revision_simulations/`](revision_s
 ├── FCM_weight.ipynb                   # Simulation study (Section 6)
 ├── FCM_cell.ipynb                     # RNA-seq case study (Application Example 1)
 ├── FCM_adni.ipynb                     # Revised ADNI analysis, including likelihood-ratio test
-├── TCGA_BRCA_three_methods.ipynb      # Revision: K-means, FCM, and WFCM on TCGA-BRCA
+├── FCM_breast.ipynb      # Revision: K-means, FCM, and WFCM on TCGA-BRCA
 ├── requirements-applications.txt     # Application notebook dependencies
 ├── revision_simulations/              # Revision experiments, results, and reporting
 └── README.md
@@ -70,7 +70,7 @@ inference, and computation summaries are in [`revision_simulations/`](revision_s
                 `ADNIMERGE_0.0.1.tar.gz` — raw ADNI dataset
         - Description: Revised analysis from `FCM_adni_rev.ipynb`, retained under the existing repository filename. Includes the appended likelihood-ratio test and an optional pre-PCA Kaiser–Guttman diagnostic.
     - Example 3 (revision): TCGA-BRCA
-        - Notebook: `TCGA_BRCA_three_methods.ipynb`
+        - Notebook: `FCM_breast.ipynb`
         - Compares K-means, FCM, and WFCM against PAM50 subtypes; exports fitting diagnostics, memberships, metrics, and supplementary plots.
         - Configure the expression and clinical inputs in the notebook settings. The expression matrix must have an `Ensembl_ID` column; the clinical table must have `sampleID` and `PAM50Call_RNAseq`. The notebook checks the expected 819-sample cohort before fitting.
         - Defaults copied from the supplied revision notebook: 5,000 variable genes, five PCs, four clusters, and fixed m=2. Prepared/existing input modes require the same five-PC representation.
