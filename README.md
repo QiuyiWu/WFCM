@@ -66,7 +66,7 @@ The notebook writes `ADNI_pc_final.csv` locally. If you already have the exact r
 
 If you already have the exact reference PC scores, the default `INPUT_MODE = 'prepared'` reads `data/TCGA_BRCA_prepared_pcs.csv`. The first CSV column must be a unique sample ID, followed by `PC1` through `PC5` and `PAM50`. This mode checks the reference fingerprints for the scores, sample IDs, and labels.
 
-The final sensitivity cell currently enables the 3-, 5-, 10-, and 20-PC sweep. It needs the expression matrix and clinical table in either input mode. To run only the main five-PC analysis with the prepared CSV, skip the final sensitivity cell.
+To run the optional 3-, 5-, 10-, and 20-PC sensitivity sweep, set `RUN_PC_SENSITIVITY = True` in the settings cell. The sweep needs the expression matrix and clinical table in either input mode. The default setting runs only the main five-PC analysis.
 
 ## Citation
 If you use this code in your research, please cite:

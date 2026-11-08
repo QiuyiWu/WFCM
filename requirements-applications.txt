@@ -1,0 +1,15 @@
+# Application notebooks; use a separate environment from revision_simulations.
+# scikit-learn >=1.5 is required for TSNE(max_iter=...).
+numpy
+pandas
+scipy
+matplotlib
+seaborn
+scikit-learn>=1.5
+pyreadr
+scanpy
+tqdm
+jupyterlab
+nbformat
+# Optional for supplementary TCGA embedding plots:
+# umap-learn
