@@ -19,13 +19,13 @@ Each fit uses the existing iid defensive proposal: 90% fitted two-component GMM 
 | Output | Fixed design | Display |
 |---|---|---|
 | Figure 10 | 250 datasets at each n=200,500,1000,2000; fixed m=2; M=max(2000,ceil(n^1.5)) | Mean aligned center RMSE, absolute scale error, L1 weight error; ±1.96 dataset MCSE; log-log axes and n^-1/2 reference |
-| Figure 11 | Same 1,000 fits; independent truth Fisher information from 750,000 draws | Four marginal QQ panels for log(sigma), v1, v2, log(w1/w2); all sample sizes overlaid |
-| Figure 12 | 200 datasets at each n=200,500,1000; m grid 1.5,1.7,1.9,2.0,2.1,2.3,2.5 | Mean total training NLL and ±1 sample SD, separately by n; minimum of the mean curve marked |
+| Figure 11 | Same 1,000 fits; independent truth Fisher information from 750,000 draws | Four marginal QQ panels for log(sigma), v1, v2, log(w1/w2); same-color points connected in quantile order, with all sample sizes overlaid |
+| Figure 12 | 200 datasets at each n=200,500,1000; m grid 1.5,1.7,1.9,2.0,2.1,2.3,2.5 | Mean total training NLL with ±1.96 MCSE bars in the upper panels; the same mean curves enlarged without error bars below; one column per n, with the minimum mean NLL marked |
 | Table 6 | 200 datasets at each n=200,500; 199 parametric and 199 nonparametric refits each; M=max(4000,20n) | Normal bootstrap/Fisher upper panel, percentile bootstrap/Fisher lower panel; coverage, length and CPU seconds |
 
 Normal-bootstrap intervals are centered at the bootstrap mean with 1.96 times the bootstrap SD, using denominator B. Percentile intervals use empirical 0.025 and 0.975 quantiles. Fisher information uses 50,000 fitted-model draws and the existing eigenvalue rule, omitting finite-IS covariance. All 159,200 prescribed bootstrap refits are valid. Both timing panels now use CPU seconds, including the observed fit, rather than the previous mixture of CPU and wall-clock time.
 
-The Figure 12 ribbon varies over independent datasets in the adopted additional setting. It is not the original notebook's numerical-seed variation for one fixed dataset. Selection frequencies are saved separately. No candidate is selected from an incomplete or invalid grid.
+Figure 12 uses pointwise Monte Carlo standard errors: the sample SD of total training NLL across R=200 independent datasets divided by sqrt(R). Its ±1.96 MCSE bars describe precision of the estimated mean. The lower panels enlarge the identical total-NLL means without error bars. Selection frequencies are saved separately. No candidate is selected from an incomplete or invalid grid.
 
 ## Findings and limitations
 

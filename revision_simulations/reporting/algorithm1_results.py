@@ -129,11 +129,11 @@ def figures(records, tables, output, pilot):
             for color, n in zip(colors, sorted({r['n'] for r in valid})):
                 z = np.sort([r['marginal_z'][j] for r in valid if r['n'] == n])
                 quantiles = norm.ppf((np.arange(len(z))+.5)/len(z))
-                ax.plot(quantiles, z, '.', color=color,
-                        ms=3, alpha=.75, label=f'n = {n}')
+                ax.plot(quantiles, z, '.-', color=color,
+                        ms=2.4, lw=1.15, alpha=.9, label=f'n = {n}')
                 if zoom is not None:
                     # Identical points and ranks; only the inset's view is zoomed.
-                    zoom.plot(quantiles, z, '.', color=color, ms=2, alpha=.75)
+                    zoom.plot(quantiles, z, '.-', color=color, ms=2, lw=1.2, alpha=.9)
             ax.plot([-3.5, 3.5], [-3.5, 3.5], '--', color='.35', lw=1)
             ax.set(xlabel='Standard normal quantile', ylabel='Standardized estimation error',
                    title=(r'$\log\sigma$', r'$v_1$', r'$v_2$', r'$\log(w_1/w_2)$')[j])
@@ -148,21 +148,35 @@ def figures(records, tables, output, pilot):
     curves = tables['m_grid']
     if not curves.empty:
         groups = list(curves.groupby('n'))
-        fig, axes = plt.subplots(1, len(groups), figsize=(3*len(groups), 3.2), layout='constrained', squeeze=False)
-        for ax, (n, group), color in zip(axes.ravel(), groups, colors):
-            ax.plot(group.m, group.mean_total_nll, 'o-', color=color, label='Mean train NLL')
-            if group.sd_total_nll.notna().any():
-                ax.fill_between(group.m, group.mean_total_nll-group.sd_total_nll,
-                                group.mean_total_nll+group.sd_total_nll, color=color, alpha=.15, label='±1 SD')
-            ax.axvline(2., color='.45', ls='--', lw=1, label=r'True $m_0=2$')
+        fig, axes = plt.subplots(2, len(groups), figsize=(3.4*len(groups), 5.4),
+            layout='constrained', squeeze=False, sharex='col',
+            gridspec_kw={'height_ratios': [1.05, 1.]})
+        for column, ((n, group), color) in enumerate(zip(groups, colors)):
+            ax, zoom = axes[:, column]
+            ax.errorbar(group.m, group.mean_total_nll,
+                yerr=1.96*group.mcse_total_nll if group.mcse_total_nll.notna().any() else None,
+                fmt='o-', color=color, ms=4, lw=1.8, ecolor='.55',
+                elinewidth=.8, capsize=2.5, capthick=.8, label='Mean ± 1.96 MCSE')
+            zoom.plot(group.m, group.mean_total_nll, 'o-', color=color, ms=4, lw=1.8)
+            for panel in (ax, zoom):
+                panel.axvline(2., color='.5', ls='--', lw=.8, label=r'True $m_0=2$')
+                panel.set_xticks(group.m)
+                panel.tick_params(axis='x', labelsize=9, labelrotation=45)
+                panel.tick_params(axis='y', labelsize=9)
+                panel.ticklabel_format(axis='y', style='plain', useOffset=False)
             if group.mean_total_nll.notna().any():
                 best = group.loc[group.mean_total_nll.idxmin()]
-                ax.plot(best.m, best.mean_total_nll, '*', ms=13, color=color)
-            ax.set(xlabel='Fuzziness parameter m', ylabel='Total training NLL', title=f'n = {n}')
-            ax.set_xticks(group.m)
-            ax.tick_params(axis='x', labelsize=9, labelrotation=45)
-            ax.ticklabel_format(axis='y', style='plain', useOffset=False)
-            ax.legend(fontsize=9)
+                for panel in (ax, zoom):
+                    panel.plot(best.m, best.mean_total_nll, '*', ms=12, color=color,
+                               label='Minimum mean NLL')
+            ax.set(ylabel='Total training NLL', title=f'n = {n}')
+            zoom.set(xlabel='Fuzziness parameter m', ylabel='Mean total NLL (zoom)',
+                     title='Mean curve only - no error bars')
+            zoom.set_title('Mean curve only - no error bars', fontsize=9)
+            zoom.margins(y=.18)
+        handles, labels = axes[0, 0].get_legend_handles_labels()
+        fig.legend(handles, labels, loc='upper center', bbox_to_anchor=(.5, -.02),
+                   ncol=3, frameon=False, fontsize=9)
         _save(fig, output, 'figure12_m_selection', pilot)
 
 
@@ -221,10 +235,11 @@ def main():
     atomic_json(args.output/'reporting_definitions.json', dict(
         profile=config['profile'], complete=set(identities) == expected,
         figure10='Mean aligned center RMSE, absolute scale error, L1 weight error; ±1.96 dataset MCSE',
-        figure11='Four zero-floor free-coordinate errors divided by independent truth-Fisher marginal SE; overlaid n; full range retains all points, central-range insets preserve the same ranks',
+        figure11='Four zero-floor free-coordinate errors divided by independent truth-Fisher marginal SE; overlaid n; same-color points connected in quantile order; full range retains all points, central-range insets preserve the same ranks',
         figure11_coordinates='Reconstructed from saved physical estimates without the generic parameter packer 1e-12 clip; frozen raw records unchanged',
         figure11_raw_coordinate_corrections=corrected_coordinates,
-        figure12='Mean total training NLL; ±1 sample SD across independent datasets, one panel per n',
+        figure12='Unchanged mean total training NLL; top panels use ±1.96 dataset-level MCSE (SD/sqrt(R)); lower panels enlarge the same mean curves without error bars; one column per n',
+        figure12_error_bar_target='Monte Carlo precision of the estimated mean total NLL, pointwise in m; not the spread of individual datasets',
         figure12_change='The original paper varied numerical seeds for one dataset; the additional setting varies datasets',
         table6='Dataset is the independent MCSE unit; both panels use CPU seconds including observed fit',
         invalid_results='Excluded from conditional error/coverage summaries; attempted and valid counts preserved',
