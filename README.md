@@ -1,5 +1,9 @@
 # Statistical Inference for Fuzzy Clustering (WFCM)
 
+## Updated revision simulations
+
+The one-dimensional Figures 10–12 and Table 6 have been rerun with the original November Algorithm 1 (`fit_fixed`). See [the protocol and complete results](revision_simulations/ALGORITHM1_1D_RERUN.md). Real-data analyses and unrelated simulation studies are unchanged.
+
 This repository contains the analysis code accompanying *Statistical Inference for Fuzzy Clustering* by Qiuyi Wu, Zihan Zhu, and Anru R. Zhang.
 
 - [FCM_figure.ipynb](FCM_figure.ipynb) generates the method illustrations.

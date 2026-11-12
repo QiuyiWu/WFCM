@@ -1,5 +1,9 @@
 # Revision simulations
 
+## Algorithm 1 rerun: Figures 10–12 and Table 6
+
+The completed `fit_fixed` rerun uses the additional one-dimensional setting. [Protocol, commands, findings and limitations](ALGORITHM1_1D_RERUN.md); [replacement figures and Table 6](results/summary/algorithm1_1d/); [all raw outcomes](results/algorithm1_1d_full_2026-11-12/). The older `coverage` and `additional` results below retain their original direct likelihood fitter and are historical comparisons.
+
 Code and saved results for the revision of *Statistical Inference for Fuzzy Clustering*. This folder contains the simulation drivers, original run configurations, dataset-level results, and scripts for rebuilding the summary tables and figures. The original notebooks remain in the repository root.
 
 ## Experiments

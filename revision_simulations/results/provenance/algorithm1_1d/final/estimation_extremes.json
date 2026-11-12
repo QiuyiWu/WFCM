@@ -1,0 +1,59 @@
+{
+  "diagnostic": "Descriptive only: any absolute marginal z > 5; no exclusion or refitting",
+  "records": [
+    {
+      "experiment": "estimation",
+      "n": 1000,
+      "replicate": 234,
+      "sigma": 0.0012149503290140868,
+      "centers": [
+        [
+          0.020928382070163152
+        ],
+        [
+          -0.2982370491392133
+        ]
+      ],
+      "weights": [
+        0.9999998508561085,
+        1.491438918385274e-07
+      ],
+      "marginal_z": [
+        -203.96339309910584,
+        27.1866169232221,
+        -35.48313538072229,
+        -106.00142725666664
+      ],
+      "NLL": 2219.8945856716623,
+      "true_parameter_NLL_same_cloud": 2035.3012660272848,
+      "objective_gap_to_feasible_truth": 184.59331964437752
+    },
+    {
+      "experiment": "estimation",
+      "n": 500,
+      "replicate": 111,
+      "sigma": 3.0229561937576323e-06,
+      "centers": [
+        [
+          0.5400874136036314
+        ],
+        [
+          -0.4688711762576089
+        ]
+      ],
+      "weights": [
+        0.9999999999990656,
+        9.341005330479368e-13
+      ],
+      "marginal_z": [
+        -275.1014799696563,
+        17.296285199342748,
+        -18.508547276031884,
+        -134.4282631513037
+      ],
+      "NLL": 1109.9200607018497,
+      "true_parameter_NLL_same_cloud": 1008.4202158814132,
+      "objective_gap_to_feasible_truth": 101.49984482043646
+    }
+  ]
+}
