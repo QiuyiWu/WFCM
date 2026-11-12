@@ -1,39 +1,28 @@
-# Saved results
+# Simulation results
 
-## Algorithm 1 replacement results
+This folder contains simulation records, summary tables, figures, and verification files for the paper.
 
-The completed original-`fit_fixed` rerun is in [algorithm1_1d_full_2026-11-12/](algorithm1_1d_full_2026-11-12/), with the validated [pilot](algorithm1_1d_pilot_v2_2026-11-12/), [figures and Table 6](summary/algorithm1_1d/), and [independent audits](provenance/algorithm1_1d/final/). See the [reproduction guide](../ALGORITHM1_1D_RERUN.md). All earlier archives below are preserved unchanged.
+## Folder contents
 
-Each experiment folder contains the original raw CSV, compressed without
-changing its contents, and the recorded run configuration. `manifest.sha256`
-checks these files before summaries are generated. Repeated JSONL exports and
-intermediate checkpoints are omitted.
+- [algorithm1_1d_full_2026-11-12/](algorithm1_1d_full_2026-11-12/): individual simulation results, experiment settings, and software versions for Figures 10–12 and Table 6.
+- [algorithm1_1d_pilot_v2_2026-11-12/](algorithm1_1d_pilot_v2_2026-11-12/): a small test run of the simulation procedure.
+- [summary/algorithm1_1d/](summary/algorithm1_1d/): Figures 10–12, Table 6, and their numerical summaries.
+- [provenance/algorithm1_1d/final/](provenance/algorithm1_1d/final/): checks of the saved estimates, confidence intervals, and summary calculations.
+- [provenance/primary_lrt/](provenance/primary_lrt/): the source code used for the likelihood-ratio experiments.
 
-`summary/` contains tables rebuilt from those records and three figures:
+## Summary files
 
-- `benchmark.csv` and `benchmark.png`: the two paper geometries, with means,
-  MCSEs and valid-fit counts for all nine methods.
-- `selection.csv`: selection counts, fixed-k coverage, conditional coverage,
-  and the probability of selecting the true k and covering a center.
-- `dimension_scaling.csv`, `sample_size_scaling.csv`, `mc_size_sensitivity.csv`
-  and `computation.png`: importance weights, endpoint error and timing.
-- `coverage.csv`: dataset-level coverage, interval length and total time.
-- `lrt.csv`: rejection counts and binomial MCSEs, with confirmation separate.
-- `additional/`: consistency, normality and m-grid summaries and a combined figure.
+The following files are in `summary/`:
 
-Proportions in CSVs are on the 0–1 scale and times are in seconds. Benchmark
-prototype RMSE uses Euclidean center error; computation summaries use
-center-coordinate RMSE. Monte Carlo budget comparisons use the same dataset
-and independent scoring cloud, with M/n = 80 as the reference endpoint.
+| Files | Contents |
+|---|---|
+| `benchmark.csv`, `benchmark.png` | Comparison of nine methods under two simulation settings |
+| `selection.csv` | Cluster-number selection and confidence-interval coverage |
+| `dimension_scaling.csv`, `sample_size_scaling.csv`, `mc_size_sensitivity.csv`, `computation.png` | Accuracy and computing time across dimensions, sample sizes, and Monte Carlo sample sizes |
+| `coverage.csv` | Confidence-interval coverage, length, and computing time |
+| `lrt.csv` | Null rejection rates and power, with the independent confirmation reported separately |
+| `additional/` | Consistency, normality, and fuzziness-selection summaries, with a combined figure |
 
-The original runs used Python 3.12.3 on macOS ARM64. Recorded package versions
-are retained in the configurations that captured them. The numerical source
-files are unchanged; the package initializer omits an unused generalized-MM
-import, and `run.py` supplies the release paths and original seeds.
+Simulation records are stored as compressed JSON or CSV files. In CSV summaries, proportions range from 0 to 1, and times are in seconds.
 
-`provenance/primary_lrt/` preserves the launch-time inference source. Subsequent
-changes affected only the k-selection calculation; the LRT engine fingerprint
-is checked by the release tests. The independent confirmation's analysis plan
-and completed audit are retained alongside its records. The release runner
-reuses its numerical engine and seed schedule, writing a new run directory.
-Paths in the preserved provenance notes refer to the original working project.
+See the [reproduction guide](../ALGORITHM1_1D_RERUN.md) for instructions on running the simulations and generating the figures and tables.
