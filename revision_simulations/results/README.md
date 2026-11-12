@@ -1,5 +1,9 @@
 # Saved results
 
+## Algorithm 1 replacement results
+
+The completed original-`fit_fixed` rerun is in [algorithm1_1d_full_2026-11-12/](algorithm1_1d_full_2026-11-12/), with the validated [pilot](algorithm1_1d_pilot_v2_2026-11-12/), [figures and Table 6](summary/algorithm1_1d/), and [independent audits](provenance/algorithm1_1d/final/). See the [reproduction guide](../ALGORITHM1_1D_RERUN.md). All earlier archives below are preserved unchanged.
+
 Each experiment folder contains the original raw CSV, compressed without
 changing its contents, and the recorded run configuration. `manifest.sha256`
 checks these files before summaries are generated. Repeated JSONL exports and

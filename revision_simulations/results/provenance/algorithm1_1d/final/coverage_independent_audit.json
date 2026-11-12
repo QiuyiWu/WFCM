@@ -1,0 +1,13 @@
+{
+  "complete": true,
+  "completed_datasets": 400,
+  "observed_nll_checks": 400,
+  "bootstrap_requested": 159200,
+  "bootstrap_attempted": 159200,
+  "bootstrap_valid": 159200,
+  "max_total_nll_error": 1.0231815394945443e-12,
+  "max_bootstrap_interval_error": 2.220446049250313e-15,
+  "max_fisher_interval_error": 4.440892098500626e-16,
+  "fisher_eigenvalue_clipping_datasets": 0,
+  "verifier_sha256": "781388253acb91571cf872fbd40c89952d0102e691650f964e349af95d79ae74"
+}

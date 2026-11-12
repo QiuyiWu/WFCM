@@ -1,0 +1,23 @@
+{
+  "python": "3.12.3 (v3.12.3:f6650f9ad7, Apr  9 2024, 08:18:47) [Clang 13.0.0 (clang-1300.0.29.30)]",
+  "platform": "macOS-14.6.1-arm64-arm-64bit",
+  "machine": "arm64",
+  "packages": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1",
+    "pandas": "3.0.6",
+    "joblib": "1.6.0",
+    "threadpoolctl": "3.7.0",
+    "matplotlib": "3.11.2"
+  },
+  "hardware": {
+    "physical_cores": 8,
+    "performance_cores": 4,
+    "efficiency_cores": 4,
+    "ram_bytes": 25769803776
+  },
+  "numerical_threads_per_worker": 1,
+  "execution_phases": "executions/; initial worker count in run_config.json",
+  "source_commit": "08a6efa"
+}
